@@ -7,6 +7,14 @@ Rails.application.routes.draw do
 end
 
 resources :users
+
+get '/logout' => 'sessions#destroy'
+get '/login' => 'sessions#new'
+post '/login' => 'sessions#create'
+
+
+
+
 resources  :tags, only: [:show]
 
 end
