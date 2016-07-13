@@ -39,6 +39,9 @@ GEM
     addressable (2.4.0)
     arel (6.0.3)
     bcrypt (3.1.11)
+    bgg-api (0.0.2)
+      httparty
+      xml-simple
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
@@ -64,6 +67,9 @@ GEM
     execjs (2.7.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.5.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -83,6 +89,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    multi_xml (0.5.5)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
@@ -168,6 +175,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    xml-simple (1.1.5)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -176,6 +184,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  bgg-api
   byebug
   capybara
   coffee-rails (~> 4.1.0)
