@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "bgg-api"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -48,5 +49,5 @@ group :development do
   gem 'spring'
 end
 
-ruby '2.2.3'
+ruby '2.2.0'
 
