@@ -10,20 +10,29 @@
   <% end %>
 <% end %>
 
-<div class ="confirmed-friends">
-  <h1>Your Friends</h1>
-
-</div>
-
-<div class ="pending-friends">
-  <h1>Your Friend Requests</h1>
-  <ul>
-    <li><%= @pending_friends %> </li>
-     <%= button_to "Approve Friend", friend_approval_path, params: {user_id: current_user.id, friend_id: @user.id} %></div>
-  </ul>
-<%= link_to "Edit Profile", edit_user_path %>
-<%= link_to "Delete Profile", user_path, method: :delete %>
-</div>
+  <% if @user == current_user %>
+    <div class ="confirmed-friends">
+      <h1>Your Friends</h1>
+    </div>
+    <div class ="pending-friends">
+      <h1>Your Friend Requests</h1>
+      <ul>
+        <%  @pending_friends.each do |friend| %>
+          <li>
+            <%= friend.username %>
+            <%= button_to "Approve Friend", friend_approval_path, params: {user_id: current_user.id, friend_id: @user.id} %>
+          </li>
+        <% end %>
+      </div>
+      </ul>
+        <%= link_to "Edit Profile", edit_user_path %>
+        <%= link_to "Delete Profile", user_path, method: :delete %>
+    </div>
+  <% else %>
+    <div class ="confirmed-friends">
+      <h1><%= @user.username %>'s Friends</h1>
+    </div>
+  <% end %>
 
 <div class='favorites_list container'>
   <ul>
