@@ -2,7 +2,7 @@
 
 <!-- Making A Friend Request -->
 <% if @friendship %>
-  
+
   <% if @friendship.status == "accepted"%>
     <%= button_to "Remove Friend", friendship_path(find_friendship(@user)), method: :delete, data: { confirm: 'Are you sure?' }%>
    <% else @friendship.status == "pending"%>
@@ -14,13 +14,17 @@
 <% end %>
 
 <div class ="pending-friend-requests">
-  
-  
 
 </div>
 
-
-
+<div class='favorites_list'>
+<ul>
+  <h2>Favorites</h2>
+  <% @user.favorited_games.each do |game|%>
+    <li><img class='thumbnail' src="<%= game.photo %>">  <%= link_to game.title, game_path(game.id) %></li>
+    <% end %>
+</ul>
+</div>
 
 <%= link_to "Edit Profile", edit_user_path %>
 <%= link_to "Delete Profile", user_path, method: :delete %>

@@ -4,13 +4,15 @@ Rails.application.routes.draw do
 
  resources :games do
   resources :comments
+  resources :favorites, only: [:create, :destroy]
+
 end
 
 resources :users
 
 get '/logout' => 'sessions#destroy'
 get '/login' => 'sessions#new'
-post '/login' => 'sessions#create'
+post '/login' => 'sessions#create', as: :sessions
 
 
 resources  :tags, only: [:show]
