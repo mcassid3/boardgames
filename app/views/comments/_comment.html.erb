@@ -1,6 +1,12 @@
 <div class="comment">
   <div class="comment-content">
-    <p class="comment-body"> <%= comment.body %></p>
+    <p class="comment-body"> Score <%= total_votes(comment.id) %> <%= comment.body %></p>
+
+      <% if !voted_on(current_user.id, comment.id)  %>
+        <%= link_to "Up Vote", update_votes_path(comment, vote: 1), :method=> :post %>
+        <%= link_to "Down Vote", update_votes_path(comment, vote: 0), :method=> :post %>
+      <%end%>
+
     <p class="comment-user">
       -<%=  link_to comment.user.username.capitalize, user_path(comment.user) %>
     </p>
