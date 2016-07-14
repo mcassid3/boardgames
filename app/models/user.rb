@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :ratings
   has_many :comments
   has_many :favorites
+  has_many :favorited_games, through: :favorites, source: :game
   has_many :friendships
   has_many :friends, through: :friendships, class_name: 'User'
   has_many :votes

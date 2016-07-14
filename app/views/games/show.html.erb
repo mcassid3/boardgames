@@ -1,0 +1,4 @@
+<%= @game.title %><br>
+<img class='thumbnail' src="<%= @game.photo %>">
+
+<%= link_to "Add #{@game.title} to Favorites", game_favorites_path(game_id: @game.id), method: :post %>

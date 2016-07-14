@@ -1,5 +1,12 @@
-<h2>Profile Page for <%= current_user.username %> </h2>
-
+<h2>Profile Page for <%= @user.username %> </h2>
+<div class='favorites_list'>
+<ul>
+  <h2>Favorites</h2>
+  <% current_user.favorited_games.each do |game|%>
+    <li><img class='thumbnail' src="<%= game.photo %>">  <%= link_to game.title, game_path(game.id) %></li>
+    <% end %>
+</ul>
+</div>
 
 
 
