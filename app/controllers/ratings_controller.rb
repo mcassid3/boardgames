@@ -1,11 +1,10 @@
 class RatingsController < ApplicationController
-  def new
-    @rating = Rating.new
+  def show
   end
 
   def create
-    @rating = Rating.create(user_id: current_user.id, game_id: params[:game_id], rating: params[:rating] )
-    redirect_to user_path
+    @rating = Rating.create(user_id: current_user.id, game_id: params[:game_id], rating: params[:rating]["rating"] )
+    redirect_to game_path(Game.find(params[:game_id]))
   end
 
   def update

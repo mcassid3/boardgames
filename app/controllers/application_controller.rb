@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   include UsersHelper
   include VotesHelper
   include FriendshipsHelper
+  include RatingsHelper
 
   def not_found
     raise ActionController::RoutingError.new('Not Found')

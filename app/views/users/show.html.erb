@@ -25,24 +25,27 @@
  </div>
 
   <% if @user == current_user %>
-    <div class ="pending-friends">
+
+   <div class ="pending-friends">
       <h1>Your Friend Requests</h1>
+      <h3>Outstanding Friend Requests</h3>
       <ul class ="no-bullets">
-        <% @pending_friends.each do |pf| %>
-
-
-          <% unless current_user = @user %>
-            <li> Pending Friend Request From <%= pf.username.capitalize %> </li>
-            <%= button_to "Approve Friend", friend_approval_path, params:{user_id: pf.id} %></div>
-          <% else %>
-            <li> Pending Friend Request To <%= pf.username.capitalize %> </li>
+        <% @initiated_pending_friends.each do |ipf| %>
+            <li> Pending Friend Request To <%= ipf.username.capitalize %> </li>
           <% end %>
-
-        <% end %>
       </ul>
+      <h3>Requests From Others</h3>
+      <ul class ="no-bullets">
+        <% @approved_pending_friends.each do |apf| %>
+            <li> Pending Friend Request From <%= apf.username.capitalize %> </li>
+            <%= button_to "Approve Friend", friend_approval_path, params:{user_id: apf.id} %>
+          <% end %>
+    </ul>
       <%= link_to "Edit Profile", edit_user_path %>
       <%= link_to "Delete Profile", user_path, method: :delete %>
     </div>
+
+
   <% end %>
 
 

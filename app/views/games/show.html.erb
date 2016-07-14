@@ -1,13 +1,21 @@
 <%= @game.title %><br>
   <img class='thumbnail' src="<%= @game.photo %>">
-  <% if current_user.favorites.find_by(game_id: @game.id) %>
+  <% if current_user && current_user.favorites.find_by(game_id: @game.id) %>
     <%= link_to "Delete #{@game.title} from Favorites", game_favorite_path(game_id: @game.id), method: :delete %>
   <% else %>
     <%= link_to "Add #{@game.title} to Favorites", game_favorites_path(game_id: @game.id), method: :post %>
 <% end %><br>
 
-    <%= link_to 'Rate Me', game_ratings_path(@game.id), method: :post %>
-
+<div class="ratings">
+  <h3>Average Rating: <%=@average_rating %></h3>
+  <% if @prev_rating %>
+      <p>You rated this game <%= @prev_rating.rating %> </p>
+  <% else %>
+  <%= render "games/game_rating" %>
+  <% end %>
+</div>
+   <!-- %= link_to 'Rate Me', game_ratings_path(@game.id), method: :post % >
+ -->
 <div id="comments">
 
   <% if  @game.comments.count > 0 %>

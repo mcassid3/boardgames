@@ -5,8 +5,7 @@ Rails.application.routes.draw do
  resources :games do
   resources :comments
   resources :favorites, only: [:create, :destroy]
-  resources :ratings, only: [:new, :create, :update]
-
+  resources :ratings
 end
 
 
