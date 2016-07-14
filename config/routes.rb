@@ -13,8 +13,8 @@ get '/login' => 'sessions#new'
 post '/login' => 'sessions#create'
 
 
-
-
 resources  :tags, only: [:show]
+
+resources :friendships, only: [:new, :create, :destroy]
 
 end
