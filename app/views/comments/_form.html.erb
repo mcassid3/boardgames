@@ -1,0 +1,8 @@
+
+<%= form_for([@game, @game.comments.build]) do |f| %>
+ 
+  <%= f.label :body %><br>
+  <%= f.text_area :body %><br>
+  <br>
+  <%= f.submit %>
+<% end %>
