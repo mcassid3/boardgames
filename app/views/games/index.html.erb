@@ -1,4 +1,9 @@
 <div class="all-games">
-    <%= render @games %>
+
+    <% @games.each do |game| %>
+    <img class='thumbnail' src="<%= game.photo %>">
+    <%= link_to game.title, game_path(game.id) %><br>
+    <%= game.description %><br>
+    <% end %>
 </div>
 

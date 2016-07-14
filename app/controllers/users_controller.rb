@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include FriendshipsHelper
 
   def new
     @user = User.new
@@ -17,6 +18,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @friendship = find_friendship(@user)
+    p "YIKES"
+    p @friendship
   end
 
   def edit
@@ -36,6 +40,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :password, :password_confirmation, :email)
+    params.require(:user).permit(:username,:email, :password, :password_cofirmation)
   end
 end

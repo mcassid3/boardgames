@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <title>Boardgames</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -12,7 +13,8 @@
     <% if flash[:notice]%>
     <%= flash[:notice]%>
     <% end %>
-<%= yield %>
-</div>
+    <%= yield %>
+  </div>
+
 </body>
 </html>

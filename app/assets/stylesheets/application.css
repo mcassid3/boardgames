@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
  .container {
   border: solid 3px black;
   border-radius: 10px;
@@ -23,3 +22,13 @@
   height: content;
   text-align: center;
  }
+
+.favorites_list ul {
+  font-size: 1.6em;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 80px;
+}
+
