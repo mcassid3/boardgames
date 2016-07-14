@@ -1,21 +1,24 @@
 class FriendshipsController < ApplicationController
-  def create
+  #pending friend request
+  def request_friend
     @friend = User.find(params[:friend_id])
-    p "KAJSHDK JAHSD KJASHDJK AHS "
-    p @friend
-    p "BCMNXBCMNZXBNCB ZXNCB"
-    p params
-    friendship = Friendship.create(user_id: params[:user_id], friend_id: @friend.id, status: "pending")
-    p "YYYYYYYY"
-    p friendship.status
+    friendship = Friendship.create(user_id: current_user.id, friend_id: @friend.id, status: "pending")
+
     redirect_to user_path(@friend)
   end
 
   def approve
-
+    @friend = User.find(params[:friend_id])
+    @friendship = find_friendship(@friend)
+    @friendship.status == "confirmed"
+    @friendship.save
+    redirect_to user_path(current_user)
   end
 
   def destroy
-
+    @friend = User.find(params[:friend_id])
+    @friendship = find_friendship(@friend)
+    @friendship.destroy
+    redirect_to user_path(current_user)
   end
 end

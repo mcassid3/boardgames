@@ -19,8 +19,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @friendship = find_friendship(@user)
-    p "YIKES"
-    p @friendship
+    @pending_friends = find_pending_friends
   end
 
   def edit
