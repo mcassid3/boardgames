@@ -7,7 +7,7 @@ module FriendshipsHelper
   def find_pending_friends
     @pending_friendships = Friendship.where(friend_id: current_user.id, status: 'pending')
       @pending_friends = @pending_friendships.map do |pending_friendship|
-          User.find(pending_friendship.friend_id)
+          User.find(pending_friendship.user_id)
       end
   end
 

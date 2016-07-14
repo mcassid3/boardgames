@@ -9,7 +9,7 @@ class FriendshipsController < ApplicationController
 
   def approve
     @friend = User.find(params[:friend_id])
-    @friendship = find_friendship(@friend)
+    @friendship = find_friendship(@user)
     @friendship.status == "confirmed"
     @friendship.save
     redirect_to user_path(current_user)
