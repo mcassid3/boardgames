@@ -1,0 +1,14 @@
+  <h1> <%= @game.title %> </h1>
+  <img src= "<%= @game.photo %>" height= "300" width= "400">
+  <p> <%= @game.description %> </p>
+
+
+
+
+  <div id="comments">
+    <h2><%= @game.comments.count %> Comments</h2>
+    <%= render @game.comments %>
+
+    <h3>Add a comment:</h3>
+    <%= render "comments/form" %>
+  </div>
