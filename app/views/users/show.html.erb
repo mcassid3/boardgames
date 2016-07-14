@@ -2,7 +2,7 @@
 <div class='favorites_list'>
 <ul>
   <h2>Favorites</h2>
-  <% current_user.favorited_games.each do |game|%>
+  <% @user.favorited_games.each do |game|%>
     <li><img class='thumbnail' src="<%= game.photo %>">  <%= link_to game.title, game_path(game.id) %></li>
     <% end %>
 </ul>

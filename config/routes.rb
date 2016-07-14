@@ -12,7 +12,7 @@ resources :users
 
 get '/logout' => 'sessions#destroy'
 get '/login' => 'sessions#new'
-post '/login' => 'sessions#create'
+post '/login' => 'sessions#create', as: :sessions
 
 
 
