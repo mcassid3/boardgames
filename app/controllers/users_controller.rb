@@ -19,7 +19,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @friendship = find_friendship_with(@user)
-    @pending_friends = @user.pending_friends
+    @initiated_pending_friends = @user.initiated_pending_friends
+    @approved_pending_friends = @user.approved_pending_friends
     @confirmed_friends = @user.confirmed_friends
   end
 

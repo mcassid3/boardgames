@@ -1,6 +1,9 @@
 class RatingsController < ApplicationController
   def new
-    @rating = Rating.new
+    @rating = Rating.new(game_id: params[:game_id])
+  end
+
+  def show
   end
 
   def create

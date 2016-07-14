@@ -25,10 +25,13 @@ class User < ActiveRecord::Base
     initiated_confirmed_friends +  approved_confirmed_friends
   end
 
-  def pending_friends
-    initiated_pending_friends = self.initiated_friendships.where(status: "pending").to_a.map { |friendship| friendship.friend}
+
+  def initiated_pending_friends
+   initiated_pending_friends = self.initiated_friendships.where(status: "pending").to_a.map { |friendship| friendship.friend}
+  end
+
+  def approved_pending_friends
     approved_pending_friends = self.approved_friendships.where(status: "pending").to_a.map { |friendship| friendship.user}
-    initiated_pending_friends +  approved_pending_friends
   end
 
 end
