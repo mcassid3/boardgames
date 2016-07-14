@@ -1,17 +1,5 @@
 <h2>Profile Page for <%= @user.username %> </h2>
 
-<!-- Making A Friend Request -->
-
-
-<!-- if you are on your own profile page, no "add button" -->
-<!-- if this is NOT your profile page -->
-      <!-- if already friends -->
-        <!-- remove button shows -->
-      <!-- if pending friends -->
-        <!-- Your request is pending message -->
-      <!-- if not friends  -->
-        <!-- put Add Button -->
-
 <% unless @user == current_user %>
   <% if @friendship == nil %>
     <%= button_to "Add Friend", friend_request_path, params: {friend_id: @user.id} %>
@@ -33,8 +21,16 @@
     <li><%= @pending_friends %> </li>
      <%= button_to "Approve Friend", friend_approval_path, params: {user_id: current_user.id, friend_id: @user.id} %></div>
   </ul>
+</div>
 
-
+<div class='favorites_list'>
+  <ul>
+    <h2>Favorites</h2>
+    <% @user.favorited_games.each do |game|%>
+      <li><img class='thumbnail' src="<%= game.photo %>">  <%= link_to game.title, game_path(game.id) %></li>
+      <% end %>
+  </ul>
+</div>
 
 <%= link_to "Edit Profile", edit_user_path %>
 <%= link_to "Delete Profile", user_path, method: :delete %>
