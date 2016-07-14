@@ -10,29 +10,32 @@
   <% end %>
 <% end %>
 
+<div class ="confirmed-friends">
+  <h1><%= @user.username %>'s Friends</h1>
+    <% if @confirmed_friends %>
+      <ul>
+        <% @confirmed_friends.each do |friend| %>
+          <li> <%= link_to friend.username, user_path(friend) %></li>
+          <%= button_to "Remove Friend", friend_removal_path, params: {friend_id: friend.id}, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </ul>
+    <% end %>
+ </div>
+
   <% if @user == current_user %>
-    <div class ="confirmed-friends">
-      <h1>Your Friends</h1>
-    </div>
     <div class ="pending-friends">
       <h1>Your Friend Requests</h1>
       <ul>
-        <%  @pending_friends.each do |friend| %>
-          <li>
-            <%= friend.username %>
-            <%= button_to "Approve Friend", friend_approval_path, params: {user_id: current_user.id, friend_id: @user.id} %>
-          </li>
+        <% @pending_friends.each do |pf| %>
+        <li> Pending Friend Request From <%= pf.username.capitalize %> </li>
+        <%= button_to "Approve Friend", friend_approval_path, params:{user_id: pf.id} %></div>
         <% end %>
-      </div>
       </ul>
-        <%= link_to "Edit Profile", edit_user_path %>
-        <%= link_to "Delete Profile", user_path, method: :delete %>
-    </div>
-  <% else %>
-    <div class ="confirmed-friends">
-      <h1><%= @user.username %>'s Friends</h1>
+      <%= link_to "Edit Profile", edit_user_path %>
+      <%= link_to "Delete Profile", user_path, method: :delete %>
     </div>
   <% end %>
+
 
 <div class='favorites_list container'>
   <ul>
@@ -41,7 +44,4 @@
       <li><img class='thumbnail' src="<%= game.photo %>">  <%= link_to game.title, game_path(game.id) %></li>
       <% end %>
   </ul>
-
-
-
 </div>
