@@ -21,16 +21,18 @@
     <li><%= @pending_friends %> </li>
      <%= button_to "Approve Friend", friend_approval_path, params: {user_id: current_user.id, friend_id: @user.id} %></div>
   </ul>
+<%= link_to "Edit Profile", edit_user_path %>
+<%= link_to "Delete Profile", user_path, method: :delete %>
 </div>
 
-<div class='favorites_list'>
+<div class='favorites_list container'>
   <ul>
     <h2>Favorites</h2>
     <% @user.favorited_games.each do |game|%>
       <li><img class='thumbnail' src="<%= game.photo %>">  <%= link_to game.title, game_path(game.id) %></li>
       <% end %>
   </ul>
-</div>
 
-<%= link_to "Edit Profile", edit_user_path %>
-<%= link_to "Delete Profile", user_path, method: :delete %>
+
+
+</div>

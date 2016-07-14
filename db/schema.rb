@@ -18,18 +18,17 @@ ActiveRecord::Schema.define(version: 20160713185522) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id",    null: false
-    t.integer  "game_id",    null: false
+    t.integer  "game_id"
     t.text     "body",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer  "user_id",                    null: false
-    t.integer  "game_id",                    null: false
-    t.boolean  "favorited",  default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.integer  "user_id",    null: false
+    t.integer  "game_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "friendships", force: :cascade do |t|
