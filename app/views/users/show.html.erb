@@ -11,7 +11,7 @@
 <% end %>
 
 <div class ="confirmed-friends">
-  <h1>Your Friends</h1>
+  <h1><%= @user.username %>'s Friends</h1>
     <% if @confirmed_friends %>
       <ul>
         <% @confirmed_friends.each do |friend| %>
@@ -22,17 +22,22 @@
     <% end %>
  </div>
 
-<div class ="pending-friends">
-  <h1>Your Friend Requests</h1>
-  <ul>
-    <% @pending_friends.each do |pf| %>
-    <li> Pending Friend Request From <%= pf.username.capitalize %> </li>
-    <%= button_to "Approve Friend", friend_approval_path, params:{user_id: pf.id} %></div>
-    <% end %>
-  </ul>
-</div>
+  <% if @user == current_user %>
+    <div class ="pending-friends">
+      <h1>Your Friend Requests</h1>
+      <ul>
+        <% @pending_friends.each do |pf| %>
+        <li> Pending Friend Request From <%= pf.username.capitalize %> </li>
+        <%= button_to "Approve Friend", friend_approval_path, params:{user_id: pf.id} %></div>
+        <% end %>
+      </ul>
+      <%= link_to "Edit Profile", edit_user_path %>
+      <%= link_to "Delete Profile", user_path, method: :delete %>
+    </div>
+  <% end %>
 
-<div class='favorites_list'>
+
+<div class='favorites_list container'>
   <ul>
     <h2>Favorites</h2>
     <% @user.favorited_games.each do |game|%>
@@ -40,6 +45,3 @@
       <% end %>
   </ul>
 </div>
-
-<%= link_to "Edit Profile", edit_user_path %>
-<%= link_to "Delete Profile", user_path, method: :delete %>

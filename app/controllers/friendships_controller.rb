@@ -3,7 +3,6 @@ class FriendshipsController < ApplicationController
   def request_friend
     @friend = User.find(params[:friend_id])
     friendship = Friendship.create(user_id: current_user.id, friend_id: @friend.id, status: "pending")
-
     redirect_to user_path(@friend)
   end
 
