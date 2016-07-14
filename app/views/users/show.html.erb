@@ -12,14 +12,23 @@
 
 <div class ="confirmed-friends">
   <h1>Your Friends</h1>
-
-</div>
+    <% if @confirmed_friends %>
+      <ul>
+        <% @confirmed_friends.each do |friend| %>
+          <li> <%= link_to friend.username, user_path(friend) %></li>
+          <%= button_to "Remove Friend", friend_removal_path, params: {friend_id: friend.id}, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </ul>
+    <% end %>
+ </div>
 
 <div class ="pending-friends">
   <h1>Your Friend Requests</h1>
   <ul>
-    <li><%= @pending_friends %> </li>
-     <%= button_to "Approve Friend", friend_approval_path, params: {user_id: current_user.id, friend_id: @user.id} %></div>
+    <% @pending_friends.each do |pf| %>
+    <li> Pending Friend Request From <%= pf.username.capitalize %> </li>
+    <%= button_to "Approve Friend", friend_approval_path, params:{user_id: pf.id} %></div>
+    <% end %>
   </ul>
 </div>
 
