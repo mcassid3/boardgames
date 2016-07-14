@@ -18,7 +18,7 @@ post '/login' => 'sessions#create', as: :sessions
 resources  :tags, only: [:show]
 
 post '/friendships/request' => 'friendships#request_friend', as: :friend_request
-post '/friendships/approval' => 'friendships#approve', as: :friend_approval
+post '/friendships/approval' => 'friendships#approve_friend', as: :friend_approval
 delete '/friendships/remove' => 'friendships#destroy', as: :friend_removal
 
 end
