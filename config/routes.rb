@@ -5,8 +5,8 @@ Rails.application.routes.draw do
  resources :games do
   resources :comments
   resources :favorites, only: [:create, :destroy]
-
 end
+
 
 resources :users
 
@@ -14,6 +14,8 @@ get '/logout' => 'sessions#destroy'
 get '/login' => 'sessions#new'
 post '/login' => 'sessions#create', as: :sessions
 
+get '/comments/:comment_id/votes' => 'votes#index', as: :comment_votes
+post '/comments/:comment_id/votes' => 'votes#create', as: :update_votes
 
 resources  :tags, only: [:show]
 
