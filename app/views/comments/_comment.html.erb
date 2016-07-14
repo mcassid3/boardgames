@@ -8,7 +8,7 @@
       <%end%>
 
     <p class="comment-user">
-      <%=  link_to comment.user.username, user_path(comment.user) %>
+      -<%=  link_to comment.user.username.capitalize, user_path(comment.user) %>
     </p>
     <p class="comment-time"> <%= time_ago_in_words(comment.created_at) %> ago</p>
   </div>

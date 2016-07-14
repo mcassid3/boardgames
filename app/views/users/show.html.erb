@@ -4,33 +4,53 @@
   <% if @friendship == nil %>
     <%= button_to "Add Friend", friend_request_path, params: {friend_id: @user.id} %>
   <% elsif @friendship.status == "confirmed" %>
-      <%= button_to "Remove Friend", friend_removal_path, params: {user_id: current_user.id, friend_id: @user.id}, method: :delete, data: { confirm: 'Are you sure?' }%>
+      <%= button_to "Unfriend #{@user.username.capitalize}", friend_removal_path, params: {user_id: current_user.id, friend_id: @user.id}, method: :delete, data: { confirm: 'Are you sure?' }%>
   <% elsif @friendship.status == "pending" %>
         <p> Your Friendship Request is Pending </p>
   <% end %>
 <% end %>
 
 <div class ="confirmed-friends">
-  <h1>Your Friends</h1>
+  <h1><%= @user.username.capitalize %>'s Friends</h1>
+    <% if @confirmed_friends %>
+      <ul class ="no-bullets">
+        <% @confirmed_friends.each do |friend| %>
+          <li> <%= link_to friend.username.capitalize, user_path(friend) %></li>
+          <% unless current_user = @user %>
+            <%= button_to "Remove Friend", friend_removal_path, params: {friend_id: friend.id}, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        <% end %>
+      </ul>
+    <% end %>
+ </div>
 
-</div>
+  <% if @user == current_user %>
+    <div class ="pending-friends">
+      <h1>Your Friend Requests</h1>
+      <ul class ="no-bullets">
+        <% @pending_friends.each do |pf| %>
 
-<div class ="pending-friends">
-  <h1>Your Friend Requests</h1>
-  <ul>
-    <li><%= @pending_friends %> </li>
-     <%= button_to "Approve Friend", friend_approval_path, params: {user_id: current_user.id, friend_id: @user.id} %></div>
-  </ul>
-</div>
+
+          <% unless current_user = @user %>
+            <li> Pending Friend Request From <%= pf.username.capitalize %> </li>
+            <%= button_to "Approve Friend", friend_approval_path, params:{user_id: pf.id} %></div>
+          <% else %>
+            <li> Pending Friend Request To <%= pf.username.capitalize %> </li>
+          <% end %>
+
+        <% end %>
+      </ul>
+      <%= link_to "Edit Profile", edit_user_path %>
+      <%= link_to "Delete Profile", user_path, method: :delete %>
+    </div>
+  <% end %>
+
 
 <div class='favorites_list'>
-  <ul>
-    <h2>Favorites</h2>
+  <ul class ="no-bullets">
+    <h2><%= @user.username.capitalize%>'s Favorite Board Games</h2>
     <% @user.favorited_games.each do |game|%>
       <li><img class='thumbnail' src="<%= game.photo %>">  <%= link_to game.title, game_path(game.id) %></li>
       <% end %>
   </ul>
 </div>
-
-<%= link_to "Edit Profile", edit_user_path %>
-<%= link_to "Delete Profile", user_path, method: :delete %>

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
  resources :games do
   resources :comments
   resources :favorites, only: [:create, :destroy]
+  resources :ratings, only: [:new, :create, :update]
+
 end
 
 
@@ -20,7 +22,7 @@ post '/comments/:comment_id/votes' => 'votes#create', as: :update_votes
 resources  :tags, only: [:show]
 
 post '/friendships/request' => 'friendships#request_friend', as: :friend_request
-post '/friendships/approval' => 'friendships#approve', as: :friend_approval
+post '/friendships/approval' => 'friendships#approve_friend', as: :friend_approval
 delete '/friendships/remove' => 'friendships#destroy', as: :friend_removal
 
 end
