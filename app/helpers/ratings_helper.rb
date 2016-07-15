@@ -7,12 +7,12 @@ module RatingsHelper
       total += rating.rating
       length +=1
     end
-    
-    if length > 0
-      return (total/length).to_f
-    else
-      return "No Rating"
-    end
 
+    if length > 0
+      (total/length).to_f
+    else
+      return "No Ratings"
+    end
+    
   end
 end
