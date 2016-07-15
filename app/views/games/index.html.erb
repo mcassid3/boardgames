@@ -1,9 +1,19 @@
+
+
 <div class="all-games">
 
-    <% @games.each do |game| %>
-    <img class='thumbnail' src="<%= game.photo %>">
-    <%= link_to game.title, game_path(game.id) %><br>
-    <%= game.description %><br>
+	<% @games.each do |game| %>
+   	<div class='ind_game'>	
+   		<img class='index_photo' src="<%= game.photo %>">
+    	<h2><%= link_to game.title, game_path(game.id) %></h2>
+    	<p> 
+    	<a class='amazon' href="http://www.amazon.com/s?url=search-alias%3Daps&field-keywords=<%= game.title %> game"><i class="fa fa-amazon fa-2x" aria-hidden="true"></i> Buy On Amazon</a> 
+    	</p>
+ 		<span class='text-desc'>
+    		<%= game.description%>
+    	</span>
+	</div>
     <% end %>
+		
 </div>
 
