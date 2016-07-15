@@ -1,17 +1,20 @@
+<div id="register">
 <%= form_for :session, url: sessions_path do |f| %>
 
 <p>
-<%= f.label :username %>
-<%= f.text_field :username %>
+
+<%= f.text_field :username, placeholder: 'Username' %>
 </p>
 
 
 <p>
-<%= f.label :password %>
-<%= f.password_field :password %>
+
+<%= f.password_field :password, placeholder: 'Password' %>
 </p>
 
-
-<%= f.submit 'Login' %>
+<button type='submit' class="btn btn-success">Log In
+  <i class="fa fa-sign-in" aria-hidden="true"></i>
+</button>
 
 <% end %>
+</div>

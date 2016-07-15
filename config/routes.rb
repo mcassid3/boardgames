@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
 
- root 'games#index'
+root 'games#index'
 
- resources :games do
+resources :games do
   resources :comments
   resources :favorites, only: [:create, :destroy]
   resources :ratings
 end
-
 
 resources :users
 
