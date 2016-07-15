@@ -3,7 +3,9 @@
     <% @games.each do |game| %>
     <img class='thumbnail' src="<%= game.photo %>">
     <%= link_to game.title, game_path(game.id) %><br>
-    <%= game.description %><br>
+    <span class="more">
+    <%= game.description %>
+    </span>
     <% end %>
 </div>
 
