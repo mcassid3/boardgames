@@ -42,7 +42,7 @@ ul.no-bullets {
 body {
  
   margin: auto;
-  background-color: #4dd0e1;
+  background-color: #e6faff;
 }
 
 .ind_game {
@@ -90,3 +90,11 @@ body {
   position: relative;
   top: 20px;
 }*/
+
+#register{
+  width: 400px;
+  margin: auto;
+}
+#footer{
+  background-color: #0B0B0B;
+}
