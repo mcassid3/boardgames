@@ -7,15 +7,16 @@
 <% end %><br>
 
 <div class="ratings">
-  <h3>Average Rating: <%=@average_rating %></h3>
+  <h3>Average Rating: <%= @average_rating %></h3>
   <% if @prev_rating %>
       <p>You rated this game <%= @prev_rating.rating %> </p>
   <% else %>
-  <%= render "games/game_rating" %>
+    <%= render "games/game_rating" %>
   <% end %>
+
 </div>
-   <!-- %= link_to 'Rate Me', game_ratings_path(@game.id), method: :post % >
- -->
+   <!--  %= link_to 'Rate Me', game_ratin////////th(@game.id), method: :post % -->
+
 <div id="comments">
 
   <% if  @game.comments.count > 0 %>
