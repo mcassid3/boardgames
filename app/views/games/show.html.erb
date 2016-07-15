@@ -12,6 +12,10 @@
     <%= link_to "Max Players: #{@game.max_players}", root_path, class: "waves-effect waves-light btn-large" %>
 
     <%= link_to "Average Play Time: #{@game.min_playing_time}", root_path, class: "waves-effect waves-light btn-large" %>
+
+    <%= link_to "Category: #{@game.category}", tag_path(@game.category), class: "waves-effect waves-light btn-large" %>
+
+
   </div>
   <span class='show-desc'><%= clean_html(@game.description) %></span>
 
