@@ -13,7 +13,6 @@
 //= require jquery
 //= require materialize-sprockets
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 
 $(document).ready(function() {
@@ -51,4 +50,6 @@ $(document).ready(function() {
         $(this).prev().toggle();
         return false;
     });
+
+    
 });
