@@ -1,5 +1,6 @@
 class FriendshipsController < ApplicationController
   include FriendshipsHelper
+
   def request_friend
     @friend = User.find(params[:friend_id])
     friendship = Friendship.create(user_id: current_user.id, friend_id: @friend.id, status: "pending")
@@ -20,4 +21,5 @@ class FriendshipsController < ApplicationController
     @friendship.destroy
     redirect_to user_path(current_user)
   end
+  
 end

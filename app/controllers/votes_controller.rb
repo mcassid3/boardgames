@@ -1,7 +1,6 @@
 class VotesController < ApplicationController
 
   def index
-    p "index"
   end
 
   def create

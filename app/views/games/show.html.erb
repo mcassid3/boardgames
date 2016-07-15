@@ -12,7 +12,7 @@
   <% if @prev_rating %>
       <p>You rated this game <%= @prev_rating.rating %> </p>
   <% else %>
-  <%= render "games/game_rating" %>
+      <%= render "games/game_rating" %>
   <% end %>
 </div>
    <!-- %= link_to 'Rate Me', game_ratings_path(@game.id), method: :post % >

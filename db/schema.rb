@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20160714161950) do
   create_table "votes", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.integer  "comment_id", null: false
-    t.integer  "vote"
+    t.string   "up_or_down"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
