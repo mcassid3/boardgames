@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160714161950) do
     t.text     "description",      null: false
     t.integer  "max_players",      null: false
     t.string   "min_playing_time", null: false
+    t.string   "category"
     t.string   "photo",            null: false
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
