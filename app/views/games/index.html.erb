@@ -3,7 +3,10 @@
     <% @games.each do |game| %>
     <img class='thumbnail' src="<%= game.photo %>">
     <%= link_to game.title, game_path(game.id) %><br>
-    <%= game.description %><br>
+
+    <p class="game-desc"><%= clean_html(game.description).truncate_words(80, omission: '... ') %></p>
     <% end %>
 </div>
 
+
+<%= will_paginate @games %>
