@@ -9,6 +9,7 @@ resources :games do
 end
   resources :tags, only: [:show]
 
+resources :tags, only: [:show]
 resources :users
 
 get '/logout' => 'sessions#destroy'
