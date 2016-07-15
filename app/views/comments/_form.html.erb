@@ -1,8 +1,6 @@
 
 <%= form_for([@game, @game.comments.build]) do |f| %>
- 
-  <%= f.label :body %><br>
-  <%= f.text_area :body %><br>
-  <br>
-  <%= f.submit 'Post Comment', class: "waves-effect waves-light btn-large" %>
+
+  <%= f.text_area :body, placeholder: 'Enter Comment Here', class: "materialize-textarea", id: 'comment-text-area' %><br>
+  <%= f.submit 'Post Comment', class: "waves-effect waves-light btn-large " %>
 <% end %>
