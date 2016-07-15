@@ -7,7 +7,10 @@
   <% end %><br>
 </div>
   <img class='index_photo' id="show-photo" src="<%= @game.photo %>">
-  <%= @game.description %>
+  <h5>Max Players: <%= @game.max_players %></h5>
+  <h5>Average Play Time: <%= @game.min_playing_time %></h5>
+  <%= clean_html(@game.description) %>
+
 
 <div class="ratings">
   <h3>Average Rating: <%= @average_rating %></h3>

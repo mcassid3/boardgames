@@ -18,7 +18,7 @@
 $(document).on("ready", function() {
   $(".dropdown-button").dropdown();
     // Configure/customize these variables.
-    var showChar = 500;  // How many characters are shown by default
+    var showChar = 300;  // How many characters are shown by default
     var ellipsestext = "...";
     var moretext = "Show more >";
     var lesstext = "Show less";
