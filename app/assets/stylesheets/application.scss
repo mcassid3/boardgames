@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+html {
+  font-family: GillSans, Calibri, Trebuchet, sans-serif;
+}
  .contained {
   margin: auto;
   padding: 10px;
@@ -42,7 +46,7 @@ ul.no-bullets {
 body {
 
   margin: auto;
-  background-color: #4dd0e1;
+  background-color: #e6faff;
 }
 
 .ind_game {
@@ -107,8 +111,10 @@ body {
 }
 
 .thumbnail {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  vertical-align: center;
 }
 
 ul.no-bullets {
@@ -186,6 +192,27 @@ ul.no-bullets {
   right: 90px;
 }
 
+#register{
+  width: 500px;
+  margin: auto;
+}
 
-
-
+#user-container {
+  background-color: #e6f5ff;
+  border-radius: .5em;
+  box-shadow: 0 0 0 .1em hsla(0,0%,0%,.1),
+              0 .3em .25em hsla(0,0%,0%,.25),
+              0 0 6em hsla(0,0%,100%,.25);
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 4.5em 0;
+  padding: 30px;
+  text-align: left;
+  vertical-align: top;
+}
+hr{
+  border: 0;
+  height: 1px;
+  background: #f2f2f2;
+  background-image: linear-gradient(to right, #f2f2f2, #666666, #f2f2f2)
+}
