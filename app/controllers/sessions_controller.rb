@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       flash[:notice] = 'Login Successful!'
       redirect_to user_path(@user)
     else
-      render :restriced_access
+      render "restricted_access"
     end
   end
 
