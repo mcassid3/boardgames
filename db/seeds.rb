@@ -25,15 +25,13 @@ ids.each do |id|
 
   title = item[0]["name"][0]["value"]
   description = item[0]["description"][0]
-  description.gsub! "&#10;&#10;", "\n\n"
-  description.gsub! " &quot;", "\""
-
 
   photo = item[0]["image"][0]
   max_players = item[0]["maxplayers"][0]["value"]
   min_playing_time = item[0]["minplaytime"][0]["value"]
+  game_category = item[0]["link"][0]["value"]
 
- Game.create!(title: title, description: description, max_players: max_players, min_playing_time: min_playing_time, photo: photo)
+ Game.create!(title: title, description: description, max_players: max_players, min_playing_time: min_playing_time, category: game_category, photo: photo)
 
   sleep 1
  end
