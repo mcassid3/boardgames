@@ -1,6 +1,5 @@
-
   <%=form_for [@game, @rating] do |f| %>
-      <%= f.radio_button :rating, 1, class: "with-gap" %>
+      <%= f.radio_button :rating, 1, class: 'radio-options' "with-gap" %>
       <%= f.label :rating_1, 1 %>
 
       <%= f.radio_button :rating, 2, class: "with-gap" %>
@@ -16,7 +15,7 @@
       <%= f.label :rating_5, 5 %>
 
       <%= f.radio_button :rating, 6, class: "with-gap" %>
-      <%= f.label :rating_6, 6 %><br>
+      <%= f.label :rating_6, 6 %><br><br>
 
       <button class="btn waves-effect waves-light" type="submit" name="action">Submit
         <i class="material-icons right">send</i>
