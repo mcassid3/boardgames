@@ -6,6 +6,7 @@ resources :games do
   resources :comments
   resources :favorites, only: [:create, :destroy]
   resources :ratings
+  resources :tags, only: [:show]
 end
 
 resources :users
@@ -16,8 +17,6 @@ post '/login' => 'sessions#create', as: :sessions
 
 get '/comments/:comment_id/votes' => 'votes#index', as: :comment_votes
 post '/comments/:comment_id/votes' => 'votes#create', as: :update_votes
-
-resources  :tags, only: [:show]
 
 post '/friendships/request' => 'friendships#request_friend', as: :friend_request
 post '/friendships/approval' => 'friendships#approve_friend', as: :friend_approval
