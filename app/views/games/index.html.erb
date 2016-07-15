@@ -1,11 +1,14 @@
 <div class="all-games">
 
     <% @games.each do |game| %>
-    <img class='thumbnail' src="<%= game.photo %>">
-    <%= link_to game.title, game_path(game.id) %><br>
-    <span class="more">
-    <%= game.description %>
-    </span>
-    <% end %>
+    <div>
+      <img class='thumbnail' src="<%= game.photo %>"><br>
+      <p><%= link_to game.title, game_path(game.id) %></p>
+      <span class="more">
+      <%= clean_html(game.description) %>
+      </span>
+      <br>
+      <% end %>
+    </div>
 </div>
 
