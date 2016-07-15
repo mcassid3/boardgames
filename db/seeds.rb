@@ -25,9 +25,6 @@ ids.each do |id|
 
   title = item[0]["name"][0]["value"]
   description = item[0]["description"][0]
-  description.gsub! "&#10;&#10;", "\n\n"
-  description.gsub! " &quot;", "\""
-
 
   photo = item[0]["image"][0]
   max_players = item[0]["maxplayers"][0]["value"]
