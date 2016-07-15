@@ -1,12 +1,14 @@
-<%= @game.title %><br>
-  <img class='index_photo' src="<%= @game.photo %>">
+  <h2><%= @game.title %></h2>
+<div class="show-fav">
   <% if current_user && current_user.favorites.find_by(game_id: @game.id) %>
-
     <%= link_to "Delete #{@game.title} from Favorites", game_favorite_path(game_id: @game.id), method: :delete, class: "waves-effect waves-light btn-large" %>
   <% else %>
-    <%= link_to "Add #{@game.title} to Favorites", game_favorites_path(game_id: @game.id), method: :post, class: "waves-effect waves-light btn-large"%>
+    <%= link_to "Add to Favorites", game_favorites_path(game_id: @game.id), method: :post, class: "waves-effect waves-light btn-large"%>
+  <% end %><br>
+</div>
+  <img class='index_photo' id="show-photo" src="<%= @game.photo %>">
+  <%= @game.description %>
 
-<% end %><br>
 <div class="ratings">
   <h3>Average Rating: <%= @average_rating %></h3>
   <% if @prev_rating %>
