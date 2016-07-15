@@ -6,8 +6,8 @@ resources :games do
   resources :comments
   resources :favorites, only: [:create, :destroy]
   resources :ratings
-  resources :tags, only: [:show]
 end
+  resources :tags, only: [:show]
 
 resources :users
 

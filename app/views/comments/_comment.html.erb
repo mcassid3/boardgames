@@ -7,8 +7,10 @@
     <div class='votes-location'>
       <p class="comment-body"> <h6>Comment Score <%= total_votes(comment.id) %> </h6></p>
       <% if !voted_on(current_user.id, comment.id)  %>
-        <%= link_to "Up Vote", update_votes_path(comment, vote: 1), :method=> :post %><br>
-        <%= link_to "Down Vote", update_votes_path(comment, vote: 0), :method=> :post %>
+        <i class="fa fa-thumbs-o-up " aria-hidden="true"></i>
+        <%= link_to "This!!", update_votes_path(comment, vote: 1), :method=> :post %><br>
+        <i class="fa fa-thumbs-o-down " aria-hidden="true"></i>
+        <%= link_to "Booo!", update_votes_path(comment, vote: 0), :method=> :post %>
       <%end%>
     </div>
 

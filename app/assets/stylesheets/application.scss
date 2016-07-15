@@ -159,6 +159,9 @@ ul.no-bullets {
   float: left;
   position: relative;
   top: -40px;
+  font-size: 1.5em;
+  border: 1px solid black;
+  padding-bottom: 10px;
 }
 
 .comment-user {
@@ -184,6 +187,11 @@ ul.no-bullets {
   padding: 20px;
   position: relative;
   right: 90px;
+}
+
+#search {
+  width: 600px;
+  margin: auto;
 }
 
 

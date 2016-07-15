@@ -8,11 +8,14 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     if current_user
-      @prev_rating = Rating.find_by user_id: current_user.id
-      p @prev_rating
+      @prev_rating = Rating.find_by(user_id: current_user.id, game_id: @game.id)
     end
     @rating = Rating.new(game_id: params[:game_id])
     @average_rating = find_average_rating(@game)
+  end
+
+  def find
+    @game = Game.find_by(title: params[:title])
   end
 
   private

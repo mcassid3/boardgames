@@ -2,20 +2,28 @@
 
 <div class="all-games">
 
+        <form id="search" action='games#find'>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+
 
 	<% @games.each do |game| %>
-       	<div class='ind_game'>	
+       	<div class='ind_game'>
        		<img class='index_photo' src="<%= game.photo %>">
         	<h2><%= link_to game.title, game_path(game.id) %></h2>
-        	<p> 
-        	<a class='amazon' href="http://www.amazon.com/s?url=search-alias%3Daps&field-keywords=<%= game.title %> game"><i class="fa fa-amazon fa-2x" aria-hidden="true"></i> Buy On Amazon</a> 
+        	<p>
+        	<a class='amazon' href="http://www.amazon.com/s?url=search-alias%3Daps&field-keywords=<%= game.title %> game"><i class="fa fa-amazon fa-2x" aria-hidden="true"></i> Buy On Amazon</a>
         	</p>
      		<span class='text-desc more'>
         		<%= clean_html(game.description)%>
         	</span>
     	</div>
     <% end %>
-		
+
 </div>
 
 
