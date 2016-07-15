@@ -1,22 +1,51 @@
-<%=form_for [@game, @rating] do |f| %>
 
- <%= f.label :rating, 1 %>
- <%= f.radio_button :rating, 1, :checked => false %><br>
+  <%=form_for [@game, @rating] do |f| %>
+      <%= f.radio_button :rating, 1, class: "with-gap" %>
+      <%= f.label :rating_1, 1 %>
 
-  <%= f.label :rating, 2 %>
- <%= f.radio_button :rating, 2, :checked => false %><br>
+      <%= f.radio_button :rating, 2, class: "with-gap" %>
+      <%= f.label :rating_2, 2 %>
 
-  <%= f.label :rating, 3 %>
- <%= f.radio_button :rating, 3, :checked => false %><br>
+      <%= f.radio_button :rating, 3, class: "with-gap" %>
+      <%= f.label :rating_3, 3 %>
 
-  <%= f.label :rating, 4 %>
- <%= f.radio_button :rating, 4, :checked => false %><br>
+      <%= f.radio_button :rating, 4, class: "with-gap" %>
+      <%= f.label :rating_4, 4 %>
 
-  <%= f.label :rating, 5 %>
- <%= f.radio_button :rating, 5, :checked => false %><br>
+      <%= f.radio_button :rating, 5, class: "with-gap" %>
+      <%= f.label :rating_5, 5 %>
 
-  <%= f.label :rating, 6 %>
- <%= f.radio_button :rating, 6, :checked => true %><br>
+      <%= f.radio_button :rating, 6, class: "with-gap" %>
+      <%= f.label :rating_6, 6 %><br>
 
-  <%= f.submit %>
-<% end %>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+      </button>
+  <% end %>
+<!--       <p>
+      <input class="with-gap" name="group1" type="radio" id="test1" />
+      <label for="test1">1</label>
+    </p>
+    <p>
+      <input class="with-gap" name="group1" type="radio" id="test2" />
+      <label for="test2">2</label>
+    </p>
+    <p>
+      <input class="with-gap" name="group1" type="radio" id="test3"  />
+      <label for="test3">3</label>
+    </p>
+      <p>
+        <input class="with-gap" name="group1" type="radio" id="test4" />
+        <label for="test4">4</label>
+    </p>
+    <p>
+        <input  class="with-gap" name="group1" type="radio" id="test5" />
+        <label for="test5">5</label>
+    </p>
+    <p>
+        <input class="with-gap" name="group1" type="radio" id="test6" />
+        <label for="test6">6</label>
+    </p>
+  </form>
+ -->
+
