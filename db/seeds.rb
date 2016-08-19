@@ -12,6 +12,7 @@ bgg = BggApi.new
 response = bgg.hot( {:type => 'boardgame'} )
 new_response = response.to_json
 parsed = JSON.parse(new_response)
+
 ids = []
 parsed["item"].each do |item|
    ids << item["id"].to_i
@@ -25,8 +26,11 @@ ids.each do |id|
 
   title = item[0]["name"][0]["value"]
   description = item[0]["description"][0]
-
-  photo = item[0]["image"][0]
+  if item[0]["image"]
+    photo = item[0]["image"][0]
+  else 
+    photo = 'app/assets/images/not_found_img.jpeg'
+  end
   max_players = item[0]["maxplayers"][0]["value"]
   min_playing_time = item[0]["minplaytime"][0]["value"]
   game_category = item[0]["link"][0]["value"]
